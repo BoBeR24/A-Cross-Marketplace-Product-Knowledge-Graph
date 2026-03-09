@@ -1,0 +1,100 @@
+@prefix sdo: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pkgs: <http://products-kg.org/scheme/> .
+
+pkgs:ProductShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Product ;
+
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path schema:additionalProperty ;
+        sh:class schema:PropertyValue ;
+    ] ;
+
+    sh:property [
+        sh:path schema:offers ;
+        sh:class schema:Offer ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path pkgs:fromOnlineStore ;
+        sh:class schema:OnlineStore ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:class prov:Entity ;
+        sh:minCount 1 ;
+    ] .
+
+pkgs:OfferShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Offer ;
+
+    sh:property [
+        sh:path schema:price ;
+        sh:datatype xsd:float ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path schema:priceCurrency ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path schema:availabilityStarts ;
+        sh:datatype xsd:date ;
+    ] .
+
+pkgs:ProvEntityShape
+    a sh:NodeShape ;
+    sh:targetClass prov:Entity ;
+
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path rdfs:url ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+    ] .
+
+pkgs:OnlineStoreShape
+    a sh:NodeShape ;
+    sh:targetClass sdo:OnlineStore ;
+
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path rdfs:url ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+    ] .
