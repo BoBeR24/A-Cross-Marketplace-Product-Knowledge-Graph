@@ -1,6 +1,7 @@
 # A-Cross-Marketplace-Product-Knowledge-Graph
 ## Building A Cross-Marketplace Product Knowledge Graph. Project made in affiliation with Maastricht University as a part of Building And Mining Knowledge Graphs course.
-
+[Link to the project report](https://www.overleaf.com/read/ktjgnmcnsdgx#a5ca83)
+---
 The project is separated in sections:
 - [`data_processing`](./data_processing) contains Jupyter Notebooks for cleaning both used datasets
 - [`building_the_graph`](./building_the_graph) contains the Jupyter Notebook which creates and enriches the graph,
