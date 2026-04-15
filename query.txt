@@ -1,0 +1,15 @@
+SELECT ?product ?label ?offer ?price ?currency
+WHERE {
+  ?product a schema:Product ;
+           rdfs:label ?label ;
+           schema:category ?category ;
+           schema:offers ?offer .
+
+    FILTER (?category = "Musical Instruments"^^xsd:string)
+
+  ?offer a schema:Offer ;
+         schema:price ?price ;
+         schema:priceCurrency ?currency .
+}
+ORDER BY xsd:float(?price)
+LIMIT 5

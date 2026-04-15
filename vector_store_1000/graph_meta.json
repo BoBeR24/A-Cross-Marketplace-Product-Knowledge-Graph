@@ -1,0 +1,4 @@
+{
+  "graph_path": "C:\\PythonWorkspace\\KG_project\\graphs\\graph_1000.ttl",
+  "embedding_model": "sentence-transformers/all-mpnet-base-v2"
+}

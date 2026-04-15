@@ -1,0 +1,51 @@
+@prefix pkgs: <http://products-kg.org/scheme/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+prov:Entity a rdfs:Class .
+
+schema:AggregateRating a rdfs:Class .
+
+schema:Offer a rdfs:Class .
+
+schema:OnlineStore a rdfs:Class ;
+    rdfs:comment "An eCommerce site"@en .
+
+schema:Product a rdfs:Class .
+
+schema:PropertyValue a rdfs:Class .
+
+schema:QuantitativeValue a rdfs:Class .
+
+pkgs:fromOnlineStore a rdf:Property ;
+    rdfs:comment "An online store in which product can be found"@en ;
+    rdfs:domain schema:Product ;
+    rdfs:range schema:OnlineStore .
+
+prov:wasDerivedFrom a rdf:Property ;
+    rdfs:domain schema:Product ;
+    rdfs:range prov:Entity .
+
+schema:additionalProperty a rdf:Property ;
+    rdfs:domain schema:Product ;
+    rdfs:range schema:PropertyValue .
+
+schema:description a rdf:Property ;
+    rdfs:domain schema:Product ;
+    rdfs:range xsd:string .
+
+schema:name a rdf:Property ;
+    rdfs:domain schema:Product ;
+    rdfs:range xsd:string .
+
+schema:offers a rdf:Property ;
+    rdfs:domain schema:Product ;
+    rdfs:range schema:Offer .
+
+schema:price a rdf:Property ;
+    rdfs:domain schema:Offer ;
+    rdfs:range xsd:float .
+
